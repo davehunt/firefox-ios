@@ -15,14 +15,14 @@ class TrackingProtectionTests: BaseTestCase {
         }
         appSettingsTableView.staticTexts["Tracking Protection"].tap()
 
-        //Check "Private Browsing Mode Only" is selected and other items are not selected
-        XCTAssertFalse(app.tables.cells["Always On"].isSelected)
-        XCTAssertTrue(app.tables.cells["Private Browsing Mode Only"].isSelected)
-        XCTAssertFalse(app.tables.cells["Never"].isSelected)
+        //Check "Private Browsing" is selected and other items are not selected
+        XCTAssertFalse(app.tables.cells["Normal Browsing"].isSelected)
+        XCTAssertTrue(app.tables.cells["Private Browsing"].isSelected)
+        //XCTAssertFalse(app.tables.cells["Never"].isSelected)
 
-        //Select "Always On"
-        app.tables.cells["Always On"].tap()
-        XCTAssertTrue(app.tables.cells["Always On"].isSelected)
+        //Select "Normal Browsing"
+        app.tables.cells["Normal Browsing"].tap()
+        XCTAssertTrue(app.tables.cells["Normal Browsing"].isSelected)
 
         app.navigationBars["Tracking Protection"].buttons["Settings"].tap()
 
@@ -40,11 +40,11 @@ class TrackingProtectionTests: BaseTestCase {
         }
 
         appSettingsTableView1.staticTexts["Tracking Protection"].tap()
-        waitforExistence(app.tables.cells["Always On"])
+        waitforExistence(app.tables.cells["Normal Browsing"])
 
         //Check "Always On" is selected and other items are not selected
-        XCTAssertTrue(app.tables.cells["Always On"].isSelected)
-        XCTAssertFalse(app.tables.cells["Private Browsing Mode Only"].isSelected)
-        XCTAssertFalse(app.tables.cells["Never"].isSelected)
+        XCTAssertTrue(app.tables.cells["Normal Browsing"].isSelected)
+        XCTAssertFalse(app.tables.cells["Private Browsing"].isSelected)
+        //XCTAssertFalse(app.tables.cells["Never"].isSelected)
     }
 }
